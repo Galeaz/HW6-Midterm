@@ -38,6 +38,10 @@ namespace TEMPLATE_MYBAG
 		template<class T>
 		friend ostream& operator <<(ostream& out, const MyBag<T>& obj);
 		
+		bool empty() const;
+
+		void remove();
+		void getSize() const;
 	};
 
 
@@ -108,10 +112,51 @@ namespace TEMPLATE_MYBAG
 		std::sort(array, array + size);
 	}
 	template<class T>
+	bool MyBag<T>::empty() const
+	{
+		if (size == 0)
+			return true;
+		else
+			return false;
+	}
+	template<class T>
+	void MyBag<T>::remove()
+	{
+		if (empty())
+		{
+			cout << "\nThe bag is empty\n";
+			return;
+		}
+		else
+		{
+		
+			int index = inputInteger("Enter the index of the item you want removed: ", 0, size-1);
+			T holder = array[index];
+			array[index] = 0;
+			size = size - 1;
+			for (int i = index; i < size; i++)
+				array[i] = array[i+1];
+			cout << "\nThe value " << holder << " has been removed from the array\n";
+		}
+
+
+	}
+	template<class T>
+	void MyBag<T>::getSize() const
+	{
+		return size;
+	}
+
+	template<class T>
 	ostream& operator <<(ostream& out, const MyBag<T>& obj)
 	{
+		if (obj.empty())
+		{
+			out << "\nThe bag is empty\n";
+			return out;
+		}
 		for (int i = 0; i < obj.size; i++)
-			out << obj.array[i] << '\n';
+			out <<'[' << i <<"]: " << obj.array[i] << '\n';
 		return out;
 
 	}

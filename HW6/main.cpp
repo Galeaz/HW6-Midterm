@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string>
+#include "option2.h"
 using namespace std;
 #include "input.h"
 
@@ -19,7 +20,7 @@ int main()
 		{
 		case 0:  exit(0);
 		case 1:  system("cls"); /*function();*/ break;
-		case 2:  system("cls"); /*function();*/ break;
+		case 2:  system("cls"); option2(); break;
 		case 3:  system("cls"); /*function();*/ break;
 		default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
 		}
@@ -42,7 +43,7 @@ int menuOption()
 	cout << '\t' << char(186) << " - Duyen Tran                             " << char(186) << '\n';
 	cout << "\t" << char(204) << string(42, char(205)) << char(185) << "\n";
 	cout << "\t" << char(186) << "   1: ?????? ?????????                    " << char(186) << "\n";
-	cout << "\t" << char(186) << "   2: ???? ?????????                      " << char(186) << "\n";
+	cout << "\t" << char(186) << "   2: template bag of doubles             " << char(186) << "\n";
 	cout << "\t" << char(186) << "   3: ??????????? ????? ? ???? ?????????  " << char(186) << "\n";
 	cout << "\t" << char(199) << string(42, char(196)) << char(182) << "\n";
 	cout << "\t" << char(186) << "   0: Exit                                " << char(186) << "\n";
