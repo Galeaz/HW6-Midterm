@@ -145,6 +145,8 @@
     <ClInclude Include="input.h" />
     <ClInclude Include="MyBag1.h" />
     <ClInclude Include="option2.h" />
+    <ClInclude Include="option3\Course.h" />
+    <ClInclude Include="option3\driver3.h" />
     <ClInclude Include="templateMyBag.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
