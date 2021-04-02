@@ -1,3 +1,7 @@
+// Participants: Long Duong, Gabriela Lopez and Duyen Tran
+// Date: 03-30-21
+// Description: course header
+
 #pragma once
 
 #include "../templateMyBag.h"
@@ -5,9 +9,12 @@
 
 using namespace TEMPLATE_MYBAG;
 
-class Course {
+class Course 
+{
 public:
 	Course() = default;
+
+	Course loadFileToCourses(std::string fileName);
 
 	void addNewStudent(int ID, std::string name, double studentScore, char studentGrade);
 
