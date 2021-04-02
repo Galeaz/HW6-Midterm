@@ -5,7 +5,9 @@
 #pragma once
 
 #include "../templateMyBag.h"
+#include "../input.h"
 #include <string>
+#include <fstream>
 
 using namespace TEMPLATE_MYBAG;
 
@@ -14,7 +16,7 @@ class Course
 public:
 	Course() = default;
 
-	Course loadFileToCourses(std::string fileName);
+	Course loadFileToCourses(int numberOfCourses);
 
 	void addNewStudent(int ID, std::string name, double studentScore, char studentGrade);
 
