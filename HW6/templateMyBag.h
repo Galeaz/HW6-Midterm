@@ -42,7 +42,7 @@ namespace TEMPLATE_MYBAG
 		bool empty() const;
 
 		void remove();
-		void getSize() const;
+		int getSize() const;
 	};
 
 
@@ -143,7 +143,7 @@ namespace TEMPLATE_MYBAG
 
 	}
 	template<class T>
-	void MyBag<T>::getSize() const
+	int MyBag<T>::getSize() const
 	{
 		return size;
 	}

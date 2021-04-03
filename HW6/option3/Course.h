@@ -43,6 +43,8 @@ public:
 	void deleteStudentByID(int ID);
 	void deleteStudentByName(std::string name);
 
+	friend std::ostream& operator<< (std::ostream& os, const Course& course);
+
 private:
 	std::string courseName;
 	MyBag<int> studentIDs;
@@ -51,4 +53,3 @@ private:
 	MyBag<char> studentGrades;
 };
 
-std::ostream& operator<< (std::ostream& os, const Course& course);

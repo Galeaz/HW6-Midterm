@@ -97,4 +97,19 @@ Course Course::loadFileToCourses(int numberOfCourses)
 		}
 	} while (counter != numberOfCourses);
 	return newCourse;
+
+}
+
+ostream& operator<< (ostream& os, const Course& obj)
+{
+	os << "Index:\tID:\tName:\tScore:\tGrade:";
+	for (int i = 0; i < obj.studentIDs.getSize(); i++)
+	{
+		os << '\n' << i << '\t';
+		os << obj.studentIDs << '\t';
+		os << obj.studentNames << '\t';
+		os << obj.studentScores << '\t';
+		os << obj.studentGrades << '\t';
+	}
+	return os;
 }
