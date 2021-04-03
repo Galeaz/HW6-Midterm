@@ -5,6 +5,39 @@
 #include "option3/Course.h"
 using namespace std;
 
+// accesors - mutators
+int Course::getStudentPosition(int ID){}
+int Course::getStudentID(string name){}
+string Course::getStudentName(int position){}
+double Course::getStudentScores(int position){}
+char Course::getStudentGrade(int position){}
+
+void Course::setCourseName(string newCourseName)
+{
+	courseName = newCourseName;
+}
+
+void Course::setStudentID(int newID)
+{
+	studentIDs = newID;
+}
+
+void Course::setStudentName(string newName)
+{
+	studentNames = newName;
+}
+
+void Course::setStudentScores(double newScore)
+{
+	studentScores = newScore;
+}
+
+void Course::setStudentGrade(double theScore)
+{
+	// if else for score
+	//studentGrades = ' '; <- grade letter
+}
+
 void Course::addNewStudent(int ID, string name, double studentScore, char studentGrade)
 {
 	studentIDs.insert(ID);
@@ -37,7 +70,14 @@ Course Course::loadFileToCourses(int numberOfCourses)
 				while (!file.eof())
 				{
 					getline(file, data, '\n');
-					// set all elements in course
+					newCourse.setCourseName(data);
+					getline(file, data, ',');
+					newCourse.setStudentID(stoi(data));
+					getline(file, data, ',');
+					newCourse.setStudentName(data);
+					getline(file, data, ',');
+					newCourse.setStudentScores(stod(data));
+					newCourse.setStudentGrade(stod(data));
 					if (file.eof())
 						break;
 				}
@@ -47,5 +87,6 @@ Course Course::loadFileToCourses(int numberOfCourses)
 				counter++;
 			}
 		}
-	} while (true);
+	} while (counter != numberOfCourses);
+	return newCourse;
 }

@@ -2,6 +2,7 @@
 #include<iostream>
 #include <algorithm>
 using namespace std;
+#include "input.h"
 namespace TEMPLATE_MYBAG
 {
 	template<class T>

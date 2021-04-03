@@ -16,6 +16,20 @@ class Course
 public:
 	Course() = default;
 
+	// accesors - mutators
+	int getStudentPosition(int ID);
+	int getStudentID(std::string name);
+	std::string getStudentName(int position);
+	double getStudentScores(int position);
+	char getStudentGrade(int position);
+	void setCourseName(string newCourseName);
+	void setStudentID(int newID);
+	void setStudentName(std::string newName);
+	void setStudentScores(double newScore);
+	void setStudentGrade(double theScore);
+
+
+
 	Course loadFileToCourses(int numberOfCourses);
 
 	void addNewStudent(int ID, std::string name, double studentScore, char studentGrade);
