@@ -70,14 +70,14 @@ namespace TEMPLATE_MYBAG
 		size = 0;
 	}
 	template<>
-	void MyBag<char>::clear()
+	inline void MyBag<char>::clear()
 	{
 		for (int i = 0; i < size; i++)
 			array[i] = '0';
 		size = 0;
 	}
 	template<>
-	void MyBag<string>::clear()
+	inline void MyBag<string>::clear()
 	{
 		for (int i = 0; i < size; i++)
 			array[i] = " ";
