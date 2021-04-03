@@ -88,6 +88,7 @@ Course Course::loadFileToCourses(int numberOfCourses)
 					newCourse.setStudentGrade(stod(data));
 					if (file.eof())
 						break;
+					//else clean getline? has to have a \n
 				}
 				file.close();
 				theBag.insert(newCourse);

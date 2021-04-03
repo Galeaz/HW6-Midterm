@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include "input.h"
 #include <algorithm>
 #include "templateMyBag.h"
 using namespace std;
