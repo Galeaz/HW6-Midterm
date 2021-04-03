@@ -5,7 +5,6 @@
 #pragma once
 
 #include "../templateMyBag.h"
-#include "../input.h"
 #include <string>
 #include <fstream>
 

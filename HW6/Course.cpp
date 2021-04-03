@@ -6,11 +6,11 @@
 using namespace std;
 
 // accesors - mutators
-int Course::getStudentPosition(int ID){}
-int Course::getStudentID(string name){}
-string Course::getStudentName(int position){}
-double Course::getStudentScores(int position){}
-char Course::getStudentGrade(int position){}
+int Course::getStudentPosition(int ID) { return 1; }
+int Course::getStudentID(string name) { return 1; }
+string Course::getStudentName(int position){ return "1"; }
+double Course::getStudentScores(int position){ return 1; }
+char Course::getStudentGrade(int position){ return 1; }
 
 void Course::setCourseName(string newCourseName)
 {
@@ -24,7 +24,7 @@ void Course::setStudentID(int newID)
 
 void Course::setStudentName(string newName)
 {
-	studentNames = newName;
+	//studentNames = newName;
 }
 
 void Course::setStudentScores(double newScore)
@@ -34,8 +34,16 @@ void Course::setStudentScores(double newScore)
 
 void Course::setStudentGrade(double theScore)
 {
-	// if else for score
-	//studentGrades = ' '; <- grade letter
+	if (theScore >= 90)
+		studentGrades = 'A';
+	else if (theScore >=80)
+		studentGrades = 'B';
+	else if (theScore >= 70)
+		studentGrades = 'C';
+	else if (theScore >= 60)
+		studentGrades = 'D';
+	else
+		studentGrades = 'F';
 }
 
 void Course::addNewStudent(int ID, string name, double studentScore, char studentGrade)
