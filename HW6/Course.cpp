@@ -101,6 +101,33 @@ Course Course::loadFileToCourses(int numberOfCourses)
 
 }
 
+bool Course::searchStudentWithID(int ID)
+{
+	int position = 0;
+	return studentIDs.search(ID, position); // WHY DO WE NEED A POSITION IN SEARCHING? **********************************************************
+}
+
+
+/// WORK IN PROGRRRREEESSSSSS
+
+
+int Course::searchStudentWithName(std::string name)
+{
+	return 1;
+}
+
+string Course::getStudentNameByID(int ID){ return "1"; }
+string Course::getStudentScoreByID(int ID){ return "1"; }
+string Course::getStudentGradesByID(int ID){ return "1"; }
+
+void Course::deleteStudentByID(int ID){}
+void Course::deleteStudentByName(std::string name){}
+
+
+
+
+
+
 ostream& operator<< (ostream& os, const Course& obj)
 {
 	os << "Index:\tID:\tName:\tScore:\tGrade:";

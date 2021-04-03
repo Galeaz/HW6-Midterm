@@ -15,7 +15,7 @@ class Course
 public:
 	Course() = default;
 
-	// accesors - mutators
+	// accesors - mutators still working on them
 	int getStudentPosition(int ID);
 	int getStudentID(std::string name);
 	std::string getStudentName(int position);
