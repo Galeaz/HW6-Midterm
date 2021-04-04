@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 #include <algorithm>
+#include <cassert>
 using namespace std;
 #include "input.h"
 namespace TEMPLATE_MYBAG
@@ -39,12 +40,47 @@ namespace TEMPLATE_MYBAG
 		template<class T>
 		friend ostream& operator <<(ostream& out, const MyBag<T>& obj);
 		
+		// Long Duong's additions : (i need these functions for #3)
+		T& at(int index);
+		T* begin();
+		T* end();
+		void remove(const T& value);
+		void removeAtIndex(int index);
+
 		bool empty() const;
 
 		void remove();
 		int getSize() const;
 	};
+	
+	template <class T>
+	T& MyBag<T>::at(int index) {
+		assert(index < size);
+		return array[index];
+	}
+	template <class T>
+	T* MyBag<T>::begin() {
+		return array;
+	}
 
+	template <class T>
+	T* MyBag<T>::end() {
+		return array + size;
+	}
+	template <class T>
+	void MyBag<T>::remove(const T& value) {
+		auto oldEnd = array + size;
+		auto newEnd = std::remove(array, array + size, value);
+		assert(newEnd + 1 == oldEnd);
+		size--;
+	}
+	template <class T>
+	void MyBag<T>::removeAtIndex(int index) {
+		auto oldEnd = array + size;
+		auto newEnd = std::shift_left(array + index + 1, array + size, 1);
+		assert(newEnd + 1 == oldEnd);
+		size--;
+	}
 
 
 	template<class T>

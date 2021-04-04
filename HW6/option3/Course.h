@@ -37,8 +37,8 @@ public:
 	int searchStudentWithName(std::string name); // return student id if exists
 
 	std::string getStudentNameByID(int ID);
-	std::string getStudentScoreByID(int ID);
-	std::string getStudentGradesByID(int ID);
+	double getStudentScoreByID(int ID);
+	char getStudentGradesByID(int ID);
 
 	void deleteStudentByID(int ID);
 	void deleteStudentByName(std::string name);

@@ -3,6 +3,7 @@
 // Description: course implementation
 
 #include "option3/Course.h"
+#include <cassert>
 using namespace std;
 
 // accesors - mutators
@@ -107,24 +108,54 @@ bool Course::searchStudentWithID(int ID)
 	return studentIDs.search(ID, position); // WHY DO WE NEED A POSITION IN SEARCHING? **********************************************************
 }
 
+int Course::searchStudentWithName(std::string name) {
+	int position = 0;
+	if (studentNames.search(name, position)) {
+		return studentIDs.at(position);
+	}
+	else { return -1; }
+}
 
 /// WORK IN PROGRRRREEESSSSSS
 
-
-int Course::searchStudentWithName(std::string name)
+string Course::getStudentNameByID(int ID)
 {
-	return 1;
+	int pos = -1;
+	studentIDs.search(ID, pos);
+	assert(pos != -1);
+	return studentNames.at(pos);
+}
+double Course::getStudentScoreByID(int ID){ 
+	int pos = -1;
+	studentIDs.search(ID, pos);
+	assert(pos != -1);
+	return studentScores.at(pos);
+}
+char Course::getStudentGradesByID(int ID){ 
+	int pos = -1;
+	studentIDs.search(ID, pos);
+	assert(pos != -1);
+	return studentGrades.at(pos);
 }
 
-string Course::getStudentNameByID(int ID){ return "1"; }
-string Course::getStudentScoreByID(int ID){ return "1"; }
-string Course::getStudentGradesByID(int ID){ return "1"; }
-
-void Course::deleteStudentByID(int ID){}
-void Course::deleteStudentByName(std::string name){}
-
-
-
+void Course::deleteStudentByID(int ID){
+	int index = -1;
+	studentIDs.search(ID, index);
+	assert(index != -1);
+	studentIDs.removeAtIndex(index);
+	studentNames.removeAtIndex(index);
+	studentScores.removeAtIndex(index);
+	studentGrades.removeAtIndex(index);
+}
+void Course::deleteStudentByName(std::string name) {
+	int index = -1;
+	studentNames.search(name, index);
+	assert(index != -1);
+	studentIDs.removeAtIndex(index);
+	studentNames.removeAtIndex(index);
+	studentScores.removeAtIndex(index);
+	studentGrades.removeAtIndex(index);
+}
 
 
 
