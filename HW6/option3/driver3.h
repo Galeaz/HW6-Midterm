@@ -45,15 +45,29 @@ void driver3()
 
 			case 2: 
 			{
+				courses.insert();
 
+				break;
 			}
 
 			case 3: 
+			{
+				courses.search();
 				break;
+			}
+
 			case 4:
+			{
+				courses.remove();
+
 				break;
+			}
 			case 5:
+			{
+				courses.sort();
+
 				break;
+			}
 			default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
 			}
 
