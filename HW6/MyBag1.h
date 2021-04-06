@@ -64,8 +64,16 @@ namespace NON_TEMPLATE_MYBAG
 
 		friend ostream& operator <<(ostream& out, const MyBag& obj)
 		{
-			for (int i = 0; i < obj.size; i++)
-				out << "\t\t["<<i<<"]:"<< obj.array[i] << '\n';
+			if (obj.empty())
+			{
+				cout << "\n\tEmpty.";
+			}
+			else
+			{
+				for (int i = 0; i < obj.size; i++)
+					out << "\t\t[" << i << "]:" << obj.array[i] << '\n';
+			}
+			
 			return out;
 
 		}

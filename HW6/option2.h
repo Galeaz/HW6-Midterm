@@ -9,6 +9,8 @@ using namespace std;
 using namespace TEMPLATE_MYBAG;
 void option2();
 
+//Precondition: N/A
+//Postcondition: Print the menu
 void option2()
 {
 	MyBag<double> bag(100);
