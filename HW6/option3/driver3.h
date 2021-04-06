@@ -1,3 +1,7 @@
+// Participants: Andrew Thompson, Gabriela, Long, Duyen
+// Date: 03-30-21
+// Description: Driver for course
+
 #pragma once
 
 #include <string>

@@ -1,6 +1,6 @@
-// Participants: Long Duong, Gabriela Lopez and Duyen Tran
+// Participants: Andrew Thompson, Gabriela, Long, Duyen
 // Date: 03-30-21
-// Description: course header
+// Description: Course header
 
 #pragma once
 
