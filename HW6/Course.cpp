@@ -31,10 +31,10 @@ Course::Course(const Course& obj)
 }
 Course::~Course()
 {
-	studentIDs.~MyBag();
-	studentGrades.~MyBag();
-	studentNames.~MyBag();
-	studentScores.~MyBag();
+	//studentIDs.~MyBag();
+	//studentGrades.~MyBag();
+	//studentNames.~MyBag();
+	//studentScores.~MyBag();
 }
 void Course::setCourseName(string newCourseName)
 {
