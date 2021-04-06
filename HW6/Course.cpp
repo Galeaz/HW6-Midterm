@@ -233,10 +233,10 @@ ostream& operator<< (ostream& os, const Course& obj)
 	{
 
 		os << '\n' << i << '\t';
-		os << obj.studentIDs << '\t';
-		os << obj.studentNames << '\t';
-		os << obj.studentScores << '\t';
-		os << obj.studentGrades << '\t';
+		os << obj.studentIDs[i] << '\t';
+		os << obj.studentNames[i] << '\t';
+		os << obj.studentScores[i] << '\t';
+		os << obj.studentGrades[i] << '\t';
 	}
 	return os;
 }

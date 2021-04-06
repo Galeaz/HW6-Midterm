@@ -49,6 +49,7 @@ namespace TEMPLATE_MYBAG
 		T* end();
 		void remove(const T& value);
 		void removeAtIndex(int index);
+		T& operator[](int index) const ;
 
 		bool empty() const;
 
@@ -84,6 +85,11 @@ namespace TEMPLATE_MYBAG
 		auto newEnd = std::shift_left(array + index, array + size, 1);
 		assert(newEnd + 1 == oldEnd);
 		size--;
+	}
+	template<class T>
+	inline T& MyBag<T>::operator[](int index) const 
+	{
+		return array[index];
 	}
 	template <class T>
 	void MyBag<T>::setCapacity(int newCapacity)
