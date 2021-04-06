@@ -7,11 +7,6 @@
 using namespace std;
 
 // accesors - mutators
-int Course::getStudentPosition(int ID) { return 1; }
-int Course::getStudentID(string name) { return 1; }
-string Course::getStudentName(int position) { return "1"; }
-double Course::getStudentScores(int position) { return 1; }
-char Course::getStudentGrade(int position) { return 1; }
 Course::Course()
 {
 	studentIDs.setCapacity(0);
@@ -97,57 +92,55 @@ void Course::addNewStudent(int ID, string name, double studentScore, char studen
 	studentGrades.insert(studentGrade);
 }
 
-void Course::loadFileToCourses(int numberOfCourses, int& counter)
-{
-	string fileName;
-	ifstream file;
-	string ID, score, name, grade;
-	/*Course newCourse;*/
-
-
-	do
-	{
-		cout << "\nEnter a data file name for course[" << counter << "] : ";
-		cin >> fileName;
-		file.open(fileName);
-		if (!file)
-		{
-			cout << "Error: file not found!\n";
-		}
-	} while (!file.is_open());
-
-
-	/*file.open(fileName);*/
-	if (file.fail())
-		cout << "ERROR: The file did not open.\n";
-	else
-	{
-		getline(file, name, '\n');
-		setCourseName(name);
-		while (!file.eof())
-		{
-
-			getline(file, ID, ',');
-			setStudentID(stoi(ID));
-			getline(file, name, ',');
-			setStudentName(name);
-			getline(file, score, '\n');
-			setStudentScores(stod(score));
-			setStudentGrade(stod(score));
-			if (file.eof())
-				break;
-			//else clean getline? has to have a \n
-		}
-		file.close();
-
-		cout << "Data from file, " << fileName << ", has been read and stored into Courses[" << (counter) << "].\n";
-		counter++;
-	}
-
-
-	return;
-
-}
+//void Course::loadFileToCourses(int numberOfCourses, int& counter)
+//{
+//	string fileName;
+//	ifstream file;
+//	string ID, score, name, grade;
+//	/*Course newCourse;*/
+//
+//
+//	do
+//	{
+//		cout << "\nEnter a data file name for course[" << counter << "] : ";
+//		cin >> fileName;
+//		file.open(fileName);
+//		if (!file)
+//		{
+//			cout << "Error: file not found!\n";
+//		}
+//	} while (!file.is_open());
+//
+//
+//	/*file.open(fileName);*/
+//	if (file.fail())
+//		cout << "ERROR: The file did not open.\n";
+//	else
+//	{
+//		getline(file, name, '\n');
+//		setCourseName(name);
+//		while (!file.eof())
+//		{
+//
+//			getline(file, ID, ',');
+//			setStudentID(stoi(ID));
+//			getline(file, name, ',');
+//			setStudentName(name);
+//			getline(file, score, '\n');
+//			setStudentScores(stod(score));
+//			setStudentGrade(stod(score));
+//			if (file.eof())
+//				break;
+//			else clean getline? has to have a \n
+//		}
+//		file.close();
+//
+//		cout << "Data from file, " << fileName << ", has been read and stored into Courses[" << (counter) << "].\n";
+//		counter++;
+//	}
+//	return;
+//
+//}
 
 bool Course::searchStudentWithID(int ID)
 {
