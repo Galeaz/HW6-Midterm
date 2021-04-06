@@ -289,11 +289,9 @@ namespace TEMPLATE_MYBAG
 			out << "\nThe bag is empty\n";
 			return out;
 		}
+		out << "\n";
 		for (int i = 0; i < obj.size; i++)
-			out << obj.array[i];
+			out <<'['<< i << "]:"<< obj.array[i] << '\n';
 		return out;
-
 	}
-
-
 }

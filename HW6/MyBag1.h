@@ -56,7 +56,7 @@ namespace NON_TEMPLATE_MYBAG
 			
 		}
 		//Precondition: a my bag object
-		//Postcondition: 
+		//Postcondition: searches the bag for <element> returns true if found, and also returns the index at which the item was found, or -1 if it is not.
 		bool search(int element, int& index) const
 		{
 			index = -1;
@@ -82,7 +82,7 @@ namespace NON_TEMPLATE_MYBAG
 		{
 			if (obj.empty())
 			{
-				cout << "\n\tEmpty.";
+				out << "\n\tEmpty.";
 			}
 			else
 			{
@@ -91,6 +91,7 @@ namespace NON_TEMPLATE_MYBAG
 			}
 			
 			return out;
+		}
 
 		}
 		//Precondition: a my bag object
@@ -108,7 +109,7 @@ namespace NON_TEMPLATE_MYBAG
 		{
 			if (empty())
 			{
-				cout << "\nThe bag is empty\n";
+				cout << "\n\tERROR: The bag is empty\n";
 				return;
 			}
 			else
@@ -123,12 +124,6 @@ namespace NON_TEMPLATE_MYBAG
 				cout << "\nThe value " << holder << " has been removed from the array\n";
 			}
 
-
 		}
-
-
 	};
-
-
-
 }

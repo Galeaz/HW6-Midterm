@@ -77,7 +77,6 @@ void option2()
 			if (menuOption == 0)
 				break;
 
-			
 			cout << '\n';
 			system("pause");
 		} while (true);

@@ -13,8 +13,6 @@ Course::Course()
 	studentGrades.setCapacity(0);
 	studentNames.setCapacity(0);
 	studentScores.setCapacity(0);
-
-
 }
 
 //Precondition: need Course obj

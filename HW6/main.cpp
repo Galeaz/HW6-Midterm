@@ -104,19 +104,18 @@ void option1()
 		case 'D':
 		{
 			testBag.remove();
-
 		}
 		break;
 		case 'E':
 		{
-
 			testBag.sort();
 			cout << testBag << '\n';
 		}
 		break;
 		case 'F': return;
-
+		default: 
+			cout << "\t\t    ERROR-Invalid Option. Please re-enter."; 
+			break;
 		}
-
 	} while (true);
 }
