@@ -1,7 +1,7 @@
-//provided by professor Quach. Thank you, professor!
-//date: 3/30/2021
-//description: contains all information relation to mybag class.
-#pragma once
+//Names: Andrew Thompson, Lincoln Nguyen, Gia Minh Hoang 
+//date due: 4/5/2021
+//description: A headerfile containing a class and functions provided by Professor Quach, with a few added functions for option 1
+
 #include<iostream>
 #include <algorithm>
 using namespace std;
@@ -14,32 +14,34 @@ namespace NON_TEMPLATE_MYBAG
 		int size;
 		int capacity;
 	public:
-		// constructors
+		//Precondition: N/A
+		//Postcondition: creates a default mybag object
 		MyBag(): array(nullptr),size(0), capacity(0)
 		{}
-
+		//Precondition:	a new capacity
+		//Postcondition: creates a mybag object with capacity set to newCapacity
 		MyBag(int newCapacity)
 		{
 			array = new int[newCapacity];
 			size = 0;
 			capacity = newCapacity;
 		}
-
-		// destructor
+		//Precondition: a my bag object
+		//Postcondition: deallocates the dynamic array within the bag
 		~MyBag()
 		{
 			delete[] array;
 		}
-
-		// empty the bag
+		//Precondition: a mybag object
+		//Postcondition: clears the object, and sets its size to 0
 		void clear()
 		{
 			for (int i = 0; i < size; i++)
 				array[i] = 0;
 			size = 0;
 		}
-
-		// insert a new element
+		//Precondition:A mybag object and an element
+		//Postcondition: inserts the element at size. if bag is full, displays an error and does nothing 
 		void insert(int element)
 		{
 			if (size < capacity)
@@ -48,10 +50,13 @@ namespace NON_TEMPLATE_MYBAG
 				size++;
 			}
 			else
-				cout << "\n\tERROR: Bag is full.\n";
+			{
+				cout << "ERROR: bag full!";
+			}
+			
 		}
-
-		// serch an element in the bag
+		//Precondition: a my bag object
+		//Postcondition: searches the bag for <element> returns true if found, and also returns the index at which the item was found, or -1 if it is not.
 		bool search(int element, int& index) const
 		{
 			index = -1;
@@ -65,14 +70,14 @@ namespace NON_TEMPLATE_MYBAG
 			}
 			return false;
 		}
-
-		// sorts elements
+		//Precondition: a mybag object
+		//Postcondition: sorts the bag
 		void sort()
 		{
 			std::sort(array, array + size);
 		}
-
-		// overload << operator for display of mybag object
+		//Precondition: a mybag object
+		//Postcondition: displays the bag
 		friend ostream& operator <<(ostream& out, const MyBag& obj)
 		{
 			if (obj.empty())
@@ -88,7 +93,9 @@ namespace NON_TEMPLATE_MYBAG
 			return out;
 		}
 
-		// checks if the bag is empty
+		
+		//Precondition: a my bag object
+		//Postcondition: if the bag is empty, returns true. else, return false
 		bool empty() const
 		{
 			if (size == 0)
@@ -96,8 +103,8 @@ namespace NON_TEMPLATE_MYBAG
 			else
 				return false;
 		}
-
-		// removes one element from mybag
+		//Precondition: a mybag object
+		//Postcondition: removes an item at an entered index, then shifts the array.
 		void remove()
 		{
 			if (empty())

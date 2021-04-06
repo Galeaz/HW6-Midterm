@@ -1,6 +1,6 @@
-// Participants: Andrew Thompson, Gabriela, Long, Duyen
+// Participants: Andrew Thompson, Gabriela Lopez, Long Duong, Duyen Tran
 // Date: 03-30-21
-// Description: Driver for course
+// Description:file containing Drivers for option3 
 
 #pragma once
 

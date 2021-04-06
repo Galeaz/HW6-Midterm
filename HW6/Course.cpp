@@ -1,4 +1,4 @@
-// Participants: Andrew Thompson, Gabriela, Long, Duyen
+// Participants: Andrew Thompson, Gabriela Lopez, Long Duong, Duyen Tran
 // Date: 03-30-21
 // Description: course implementation
 
