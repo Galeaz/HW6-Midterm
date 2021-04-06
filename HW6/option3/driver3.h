@@ -87,6 +87,8 @@ void driver3()
 				}
 
 				
+			}
+
 			case 4:
 				if (fileRead)
 				{
@@ -100,12 +102,14 @@ void driver3()
 					break;
 				}
 				
+			}
 			case 5:
 				for (int i = 0; i < numberOfCourses; i++)
 				{
 					cout << courses[i]<<'\n';
 				}
 				break;
+			}
 			default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
 			}
 

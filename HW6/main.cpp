@@ -52,9 +52,9 @@ int menuOption()
 	cout << '\t' << char(186) << " - Christopher Gomez\t- Gia Minh Hoang   " << char(186) << '\n';
 	cout << '\t' << char(186) << " - Duyen Tran                             " << char(186) << '\n';
 	cout << "\t" << char(204) << string(42, char(205)) << char(185) << "\n";
-	cout << "\t" << char(186) << "   1: ?????? ?????????                    " << char(186) << "\n";
+	cout << "\t" << char(186) << "   1: template bag of ints                " << char(186) << "\n";
 	cout << "\t" << char(186) << "   2: template bag of doubles             " << char(186) << "\n";
-	cout << "\t" << char(186) << "   3: Program using multiple bags         " << char(186) << "\n";
+	cout << "\t" << char(186) << "   3: template course                     " << char(186) << "\n";
 	cout << "\t" << char(199) << string(42, char(196)) << char(182) << "\n";
 	cout << "\t" << char(186) << "   0: Exit                                " << char(186) << "\n";
 	cout << "\t" << char(200) << string(42, char(205)) << char(188) << "\n";
@@ -82,10 +82,10 @@ void option1()
 		cout << "\n\t\tD> sort";
 		cout << "\n\t\tE> display";
 		cout << "\n\t" << string(100, char(196));
-		cout << "\n\t\t0> return";
+		cout << "\n\t\tF> return";
 		cout << "\n\t\t" << string(100, char(205)) << '\n';
 
-		switch (toupper(inputChar("\t\tOption: ", "ABCDE0"))) //0 not working *********************************************
+		switch (toupper(inputChar("\t\tOption: ", "ABCDEF")))
 		{
 		case 'A': testBag.clear(); break;
 		case 'B':
@@ -111,6 +111,7 @@ void option1()
 			cout << '\n' << testBag << '\n';
 		}
 		break;
+		case 'F': return;
 
 		}
 
