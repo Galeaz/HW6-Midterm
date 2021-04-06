@@ -37,23 +37,43 @@ namespace TEMPLATE_MYBAG
 		//Precondition: a mybag object
 		//Postcondition: sorts the bag		
 		void sort();
+
 		//Precondition: a mybag object
 		//Postcondition: displays the bags contents.	
-
 		template<class T>
 		friend ostream& operator <<(ostream& out, const MyBag<T>& obj);
+
+		// Precondition: my bag
+		// Postcondition: assign content of my bag to other content
 		void operator =(const MyBag<T>& rhs);
-		// Long Duong's additions : (i need these functions for #3)
+
+		// Precondition: my bag
+		// Postcondition: return content at index 
 		T& at(int index);
+		// Precondition: my bag
+		// Postcondition: return content at index 
+		T& operator[](int index) const;
+		// Precondition: my bag
+		// Postcondition: return iterator to the first element;
 		T* begin();
+		// Precondition: my bag
+		// Postcondition: return iterator to the past-the-end element;
 		T* end();
+		// Precondition: my bag
+		// Postcondition: remove the element value
 		void remove(const T& value);
+		// Precondition: my bag
+		// Postcondition: remove the element at index
 		void removeAtIndex(int index);
-		T& operator[](int index) const ;
-
+		// Precondition: my bag
+		// Postcondition: return if bag is empty
 		bool empty() const;
-
+		
+		// Precondition: my bag
+		// Postcondition: provide ui for remove
 		void remove();
+		// Precondition : my bag
+		// Postcondition: return size of bag
 		int getSize() const;
 	};
 	

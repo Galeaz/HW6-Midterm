@@ -1,6 +1,6 @@
-// Participants: Long Duong, Gabriela Lopez and Duyen Tran
+// Participants: Andrew Thompson, Gabriela, Long, Duyen
 // Date: 03-30-21
-// Description: course header
+// Description: Course header
 
 #pragma once
 
@@ -16,8 +16,11 @@ public:
 	Course();
 	Course(const Course& obj);
 	~Course();
-	// accesors - mutators still working on them
+	// Precondition:
+	// Postcondition: 
 	int getStudentPosition(int ID);
+	// Precondition:
+	// Postcondition:
 	int getStudentID(string name);
 	string getCourseName() const;
 	string getStudentName(int position);

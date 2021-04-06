@@ -1,4 +1,4 @@
-// Participants: Long Duong, Gabriela Lopez and Duyen Tran
+// Participants: Andrew Thompson, Gabriela, Long, Duyen
 // Date: 03-30-21
 // Description: course implementation
 
@@ -31,10 +31,10 @@ Course::Course(const Course& obj)
 }
 Course::~Course()
 {
-	studentIDs.~MyBag();
-	studentGrades.~MyBag();
-	studentNames.~MyBag();
-	studentScores.~MyBag();
+	//studentIDs.~MyBag();
+	//studentGrades.~MyBag();
+	//studentNames.~MyBag();
+	//studentScores.~MyBag();
 }
 void Course::setCourseName(string newCourseName)
 {
