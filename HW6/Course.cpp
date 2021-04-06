@@ -6,7 +6,8 @@
 #include <cassert>
 using namespace std;
 
-// accesors - mutators
+//Precondition: need Course obj
+//Postcondition: initializes data for Course obj
 Course::Course()
 {
 	studentIDs.setCapacity(0);
@@ -24,16 +25,6 @@ Course::Course(const Course& obj)
 	studentNames = obj.studentNames;
 	studentScores = obj.studentScores;
 	courseName = obj.courseName;
-}
-
-//Precondition: N/A
-//Postcondition: delete all elements in Course
-Course::~Course()
-{
-	//studentIDs.~MyBag();
-	//studentGrades.~MyBag();
-	//studentNames.~MyBag();
-	//studentScores.~MyBag();
 }
 
 //Precondition: a string
@@ -166,17 +157,20 @@ void Course::loadFileToCourses(int numberOfCourses, int& counter)
 bool Course::searchStudentWithID(int ID)
 {
 	int position = 0;
-	return studentIDs.search(ID, position); // WHY DO WE NEED A POSITION IN SEARCHING? **********************************************************
+	return studentIDs.search(ID, position);
 }
 
-bool Course::searchStudentWithName(std::string name) {
+bool Course::searchStudentWithName(std::string name) 
+{
 	int position = 0;
-	if (studentNames.search(name, position)) {
+	if (studentNames.search(name, position)) 
+	{
 		return true;
 	}
 	else
 		return false;
 }
+
 void Course::clear()
 {
 	studentIDs.clear();
@@ -184,7 +178,6 @@ void Course::clear()
 	studentScores.clear();
 	studentGrades.clear();
 }
-/// WORK IN PROGRRRREEESSSSSS
 
 string Course::getStudentNameByID(int ID)
 {
@@ -193,20 +186,23 @@ string Course::getStudentNameByID(int ID)
 	assert(pos != -1);
 	return studentNames.at(pos);
 }
-double Course::getStudentScoreByID(int ID) {
+double Course::getStudentScoreByID(int ID) 
+{
 	int pos = -1;
 	studentIDs.search(ID, pos);
 	assert(pos != -1);
 	return studentScores.at(pos);
 }
-char Course::getStudentGradesByID(int ID) {
+char Course::getStudentGradesByID(int ID) 
+{
 	int pos = -1;
 	studentIDs.search(ID, pos);
 	assert(pos != -1);
 	return studentGrades.at(pos);
 }
 
-void Course::deleteStudentByID(int ID, int& index) {
+void Course::deleteStudentByID(int ID, int& index) 
+{
 	
 	studentIDs.search(ID, index);
 	if (index == -1)
@@ -218,7 +214,8 @@ void Course::deleteStudentByID(int ID, int& index) {
 	studentScores.removeAtIndex(index);
 	studentGrades.removeAtIndex(index);
 }
-void Course::deleteStudentByName(std::string name) {
+void Course::deleteStudentByName(std::string name) 
+{
 	int index = -1;
 	studentNames.search(name, index);
 	assert(index != -1);

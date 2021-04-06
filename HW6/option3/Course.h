@@ -15,7 +15,6 @@ class Course
 public:
 	Course();
 	Course(const Course& obj);
-	~Course();
 	// Precondition: course instance
 	// Postcondition: returns the current course name
 	string getCourseName() const;
