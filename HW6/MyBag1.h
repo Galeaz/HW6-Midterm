@@ -75,10 +75,17 @@ namespace NON_TEMPLATE_MYBAG
 		// overload << operator for display of mybag object
 		friend ostream& operator <<(ostream& out, const MyBag& obj)
 		{
-			for (int i = 0; i < obj.size; i++)
-				out << "\t\t["<<i<<"]:"<< obj.array[i] << '\n';
+			if (obj.empty())
+			{
+				out << "\n\tEmpty.";
+			}
+			else
+			{
+				for (int i = 0; i < obj.size; i++)
+					out << "\t\t[" << i << "]:" << obj.array[i] << '\n';
+			}
+			
 			return out;
-
 		}
 
 		// checks if the bag is empty

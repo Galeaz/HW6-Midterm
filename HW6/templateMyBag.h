@@ -1,6 +1,6 @@
-//Names: Andrew Thompson, 
-//
-//
+//Names: Andrew Thompson, Lincoln Nguyen, Gia Minh Hoang 
+//date due: 4/5/2021
+//description: A templated version of MyBag, with some added functions and a bit of experimenting with template specialization.
 #pragma once
 #include<iostream>
 #include <algorithm>
@@ -30,6 +30,8 @@ namespace TEMPLATE_MYBAG
 		//Precondition: a mybag object.
 		//Postcondition: sets all contents of the MyBag object to 0 and size to zero. (!!NOTE!! bags of type <string>) will have each space set to " " and bags of type char will be set to '0'
 		void clear();
+		//Precondition: a mybag object.
+		//Postcondition: sets the capacity of the object to newCapacity. NOTE: does not actually change the capacity of the bag.
 		void setCapacity(int newCapacity);
 		//Precondition: a mybag object
 		//Postcondition: inserts the element into the bag at the back of the array. 
@@ -40,42 +42,39 @@ namespace TEMPLATE_MYBAG
 		//Precondition: a mybag object
 		//Postcondition: sorts the bag		
 		void sort();
-
 		//Precondition: a mybag object
 		//Postcondition: displays the bags contents.	
 		template<class T>
 		friend ostream& operator <<(ostream& out, const MyBag<T>& obj);
-
-		// Precondition: my bag
+		// Precondition:  a mybag object.
 		// Postcondition: assign content of my bag to other content
 		void operator =(const MyBag<T>& rhs);
-
-		// Precondition: my bag
+		// Precondition:  a mybag object.
 		// Postcondition: return content at index 
 		T& at(int index);
-		// Precondition: my bag
+		// Precondition:  a mybag object.
 		// Postcondition: return content at index 
 		T& operator[](int index) const;
-		// Precondition: my bag
+		// Precondition: a mybag object.
 		// Postcondition: return iterator to the first element;
 		T* begin();
-		// Precondition: my bag
+		// Precondition: a mybag object.
 		// Postcondition: return iterator to the past-the-end element;
 		T* end();
-		// Precondition: my bag
+		// Precondition:  a mybag object.
 		// Postcondition: remove the element value
 		void remove(const T& value);
-		// Precondition: my bag
+		// Precondition: a mybag object.
 		// Postcondition: remove the element at index
 		void removeAtIndex(int index);
-		// Precondition: my bag
+		// Precondition: a mybag object.
 		// Postcondition: return if bag is empty
 		bool empty() const;
 		
-		// Precondition: my bag
+		// Precondition:  a mybag object.
 		// Postcondition: provide ui for remove
 		void remove();
-		// Precondition : my bag
+		// Precondition : a mybag object.
 		// Postcondition: return size of bag
 		int getSize() const;
 	};
@@ -293,8 +292,5 @@ namespace TEMPLATE_MYBAG
 		for (int i = 0; i < obj.size; i++)
 			out << obj.array[i];
 		return out;
-
 	}
-
-
 }

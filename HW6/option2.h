@@ -1,3 +1,6 @@
+//Names: Andrew Thompson, Lincoln Nguyen, Gia Minh Hoang 
+//date due: 4/5/2021
+//description: file containing the driver functions for option 2
 #pragma once
 #include <iostream>
 #include <algorithm>
@@ -6,6 +9,8 @@ using namespace std;
 using namespace TEMPLATE_MYBAG;
 void option2();
 
+//Precondition: N/A
+//Postcondition: Print the menu
 void option2()
 {
 	MyBag<double> bag(100);
@@ -55,6 +60,11 @@ void option2()
 					}
 			case 4:bag.remove(); break;
 			case 5:
+				if (bag.empty())
+				{
+					cout << "\nThe bag is empty!\n";
+					break;
+				}
 				bag.sort(); 
 				for (int i = 0; i < bag.getSize(); i++)
 				{
@@ -67,7 +77,6 @@ void option2()
 			if (menuOption == 0)
 				break;
 
-			
 			cout << '\n';
 			system("pause");
 		} while (true);
