@@ -294,8 +294,5 @@ namespace TEMPLATE_MYBAG
 		for (int i = 0; i < obj.size; i++)
 			out << obj.array[i];
 		return out;
-
 	}
-
-
 }

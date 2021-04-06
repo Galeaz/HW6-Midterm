@@ -66,7 +66,7 @@ namespace NON_TEMPLATE_MYBAG
 		{
 			if (obj.empty())
 			{
-				cout << "\n\tEmpty.";
+				out << "\n\tEmpty.";
 			}
 			else
 			{
@@ -75,7 +75,6 @@ namespace NON_TEMPLATE_MYBAG
 			}
 			
 			return out;
-
 		}
 		bool empty() const
 		{
@@ -102,11 +101,7 @@ namespace NON_TEMPLATE_MYBAG
 					array[i] = array[i + 1];
 				cout << "\nThe value " << holder << " has been removed from the array\n";
 			}
-
-
 		}
-
-
 	};
 
 
