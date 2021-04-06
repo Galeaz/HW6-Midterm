@@ -169,7 +169,6 @@ inline int inputInteger(string prompt, bool posNeg)
 //return an input integer within range ,start and end
 inline int inputInteger(string prompt, int startRange, int endRange)
 {
-
 	int input;
 	do
 	{
@@ -194,7 +193,6 @@ inline int inputInteger(string prompt, int startRange, int endRange)
 
 inline int inputInteger(string prompt, int startRange, int notAllowedNumber, int endRange)
 {
-
 	int input;
 	do
 	{

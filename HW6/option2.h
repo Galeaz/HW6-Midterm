@@ -81,8 +81,5 @@ void option2()
 			system("pause");
 		} while (true);
 	}
-	
-
-
 }
 

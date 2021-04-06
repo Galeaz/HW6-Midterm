@@ -107,7 +107,6 @@ namespace NON_TEMPLATE_MYBAG
 			}
 			else
 			{
-
 				int index = inputInteger("Enter the index of the item you want removed: ", 0, size - 1);
 				int holder = array[index];
 				array[index] = 0;

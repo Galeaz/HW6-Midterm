@@ -20,7 +20,6 @@ void driver3()
 	int counter = 0;
 	int menuOption;
 	bool fileRead = false;
-
 	
 	do
 	{
@@ -89,7 +88,6 @@ void driver3()
 					break;
 				}
 
-				
 			case 4:
 				if (fileRead)
 				{
@@ -120,8 +118,8 @@ void driver3()
 		system("pause");
 
 	} while (true);
-
 }
+
 void part3Menu3(vector<Course>& obj, int size)
 {
 	int toFind = 0;
@@ -179,11 +177,9 @@ void part3Menu3(vector<Course>& obj, int size)
 			}
 		break;
 		}
-
-
 	}
-
 } 
+
 void part3Menu4(vector<Course>& obj, int size)
 {
 	int choice = 0;
