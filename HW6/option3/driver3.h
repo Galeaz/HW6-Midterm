@@ -102,7 +102,7 @@ void driver3()
 				}
 				
 			case 5:
-				for (int i = 0; i < numberOfCourses; i++)
+				for (int i = 0; i < courses.size(); i++)
 				{
 					cout << courses[i]<<'\n';
 				}
