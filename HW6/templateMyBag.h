@@ -4,6 +4,7 @@
 #include <cassert>
 using namespace std;
 #include "input.h"
+#include <string>
 namespace TEMPLATE_MYBAG
 {
 	template<class T>
@@ -26,6 +27,7 @@ namespace TEMPLATE_MYBAG
 		//Precondition: a mybag object.
 		//Postcondition: sets all contents of the MyBag object to 0 and size to zero. (!!NOTE!! bags of type <string>) will have each space set to " " and bags of type char will be set to '0'
 		void clear();
+		void setCapacity(int newCapacity);
 		//Precondition: a mybag object
 		//Postcondition: inserts the element into the bag at the back of the array. 
 		void insert(T element);
@@ -37,9 +39,10 @@ namespace TEMPLATE_MYBAG
 		void sort();
 		//Precondition: a mybag object
 		//Postcondition: displays the bags contents.	
+
 		template<class T>
 		friend ostream& operator <<(ostream& out, const MyBag<T>& obj);
-		
+		void operator =(const MyBag<T>& rhs);
 		// Long Duong's additions : (i need these functions for #3)
 		T& at(int index);
 		T* begin();
@@ -54,8 +57,9 @@ namespace TEMPLATE_MYBAG
 	};
 	
 	template <class T>
-	T& MyBag<T>::at(int index) {
+	T& MyBag<T>::at(int index){
 		assert(index < size);
+		/*cout << '\n' << array[index]<<'\n';*/
 		return array[index];
 	}
 	template <class T>
@@ -77,15 +81,25 @@ namespace TEMPLATE_MYBAG
 	template <class T>
 	void MyBag<T>::removeAtIndex(int index) {
 		auto oldEnd = array + size;
-		auto newEnd = std::shift_left(array + index + 1, array + size, 1);
+		auto newEnd = std::shift_left(array + index, array + size, 1);
 		assert(newEnd + 1 == oldEnd);
 		size--;
 	}
-
+	template <class T>
+	void MyBag<T>::setCapacity(int newCapacity)
+	{
+		capacity = newCapacity;
+	}
 
 	template<class T>
-	MyBag<T>::MyBag() : array(nullptr), size(0), capacity(0)
-	{}
+	MyBag<T>::MyBag()
+	{
+		capacity = 0;
+		size = 0;
+		array = nullptr;
+	
+	
+	}
 	template<class T>
 	MyBag<T>::MyBag(int newCapacity)
 	{
@@ -122,12 +136,36 @@ namespace TEMPLATE_MYBAG
 	template<class T>
 	void MyBag<T>::insert(T element)
 	{
+		if (array == nullptr)
+		{
+			capacity = 10;
+			array = new T[capacity];
+			array[size] = element;
+			/*cout << array[size] << ' ';*/
+			size++;
+			return;
+		}
 		if (size < capacity)
 		{
 			array[size] = element;
+			/*cout << array[size]<< ' ';*/
 			size++;
+			return;
+		}
+		else if (size >=capacity&& size!=0)
+		{
+			T* holder;
+			capacity = capacity + capacity;
+			holder = new T[capacity];
+			for (int i = 0; i < size; i++)
+				holder[i] = array[i];
+			delete[] array;
+			array = holder;
+			array[size] = element;
+			return;
 		}
 
+			
 	}
 	template<class T>
 	bool MyBag<T>::search(T element, int& index) const
@@ -136,6 +174,21 @@ namespace TEMPLATE_MYBAG
 		for (int i = 0; i < size; i++)
 		{
 			if (array[i] == element)
+			{
+				index = i;
+				return true;
+			}
+		}
+		return false;
+	}
+	template<>
+	inline bool MyBag<string>::search(string element, int& index) const
+	{
+		index = -1;
+		for (int i = 0; i < size; i++)
+		{
+			string tocmp = array[i];
+			if (!tocmp.compare(' '+element))
 			{
 				index = i;
 				return true;
@@ -178,12 +231,28 @@ namespace TEMPLATE_MYBAG
 
 
 	}
+
 	template<class T>
 	int MyBag<T>::getSize() const
 	{
 		return size;
 	}
+	template <class T>
+	void MyBag<T>::operator =(const MyBag<T>& rhs)
+	{
+		if (array == nullptr)
+		{
+			capacity = 10;
+			array = new T[capacity];
+			size = 0;
 
+		}
+		size=rhs.size;
+		for (int i = 0; i < rhs.size; i++)
+		{
+			array[i] = rhs.array[i];
+		}
+	}
 	template<class T>
 	ostream& operator <<(ostream& out, const MyBag<T>& obj)
 	{
@@ -193,7 +262,7 @@ namespace TEMPLATE_MYBAG
 			return out;
 		}
 		for (int i = 0; i < obj.size; i++)
-			out <<'[' << i <<"]: " << obj.array[i] << '\n';
+			out << obj.array[i];
 		return out;
 
 	}

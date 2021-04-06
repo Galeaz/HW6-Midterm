@@ -14,6 +14,7 @@ using namespace std;
 #include "option2.h"
 #include "input.h"
 #include "MyBag1.h"
+#include "option3/driver3.h"
 
 //Precondition: N/A
 //Postcondition: Prints menu and returns user int option selected
@@ -30,7 +31,7 @@ int main()
 		case 0:  exit(0);
 		case 1:  system("cls"); option1(); break;
 		case 2:  system("cls"); option2(); break;
-		case 3:  system("cls"); /*function();*/ break;
+		case 3:  system("cls"); driver3(); break;
 		default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
 		}
 		cout << '\n';
@@ -53,7 +54,7 @@ int menuOption()
 	cout << "\t" << char(204) << string(42, char(205)) << char(185) << "\n";
 	cout << "\t" << char(186) << "   1: ?????? ?????????                    " << char(186) << "\n";
 	cout << "\t" << char(186) << "   2: template bag of doubles             " << char(186) << "\n";
-	cout << "\t" << char(186) << "   3: ??????????? ????? ? ???? ?????????  " << char(186) << "\n";
+	cout << "\t" << char(186) << "   3: Program using multiple bags         " << char(186) << "\n";
 	cout << "\t" << char(199) << string(42, char(196)) << char(182) << "\n";
 	cout << "\t" << char(186) << "   0: Exit                                " << char(186) << "\n";
 	cout << "\t" << char(200) << string(42, char(205)) << char(188) << "\n";

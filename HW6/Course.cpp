@@ -9,42 +9,84 @@ using namespace std;
 // accesors - mutators
 int Course::getStudentPosition(int ID) { return 1; }
 int Course::getStudentID(string name) { return 1; }
-string Course::getStudentName(int position){ return "1"; }
-double Course::getStudentScores(int position){ return 1; }
-char Course::getStudentGrade(int position){ return 1; }
+string Course::getStudentName(int position) { return "1"; }
+double Course::getStudentScores(int position) { return 1; }
+char Course::getStudentGrade(int position) { return 1; }
+Course::Course()
+{
+	studentIDs.setCapacity(0);
+	studentGrades.setCapacity(0);
+	studentNames.setCapacity(0);
+	studentScores.setCapacity(0);
 
+
+}
+Course::Course(const Course& obj)
+{
+	studentIDs = obj.studentIDs;
+	studentGrades = obj.studentGrades;
+	studentNames = obj.studentNames;
+	studentScores = obj.studentScores;
+	courseName = obj.courseName;
+}
+Course::~Course()
+{
+	studentIDs.~MyBag();
+	studentGrades.~MyBag();
+	studentNames.~MyBag();
+	studentScores.~MyBag();
+}
 void Course::setCourseName(string newCourseName)
 {
 	courseName = newCourseName;
 }
-
+string Course::getCourseName() const
+{
+	return courseName;
+}
 void Course::setStudentID(int newID)
 {
-	studentIDs = newID;
+	studentIDs.insert(newID);
 }
 
 void Course::setStudentName(string newName)
 {
-	//studentNames = newName;
+	studentNames.insert(newName);
 }
 
 void Course::setStudentScores(double newScore)
 {
-	studentScores = newScore;
+	studentScores.insert(newScore);
 }
 
 void Course::setStudentGrade(double theScore)
 {
 	if (theScore >= 90)
-		studentGrades = 'A';
-	else if (theScore >=80)
-		studentGrades = 'B';
+	{
+		studentGrades.insert('A');
+		return;
+	}
+	else if (theScore >= 80)
+	{
+		studentGrades.insert('B');
+		return;
+	}
 	else if (theScore >= 70)
-		studentGrades = 'C';
+	{
+		studentGrades.insert('C');
+		return;
+	}
 	else if (theScore >= 60)
-		studentGrades = 'D';
+	{
+		studentGrades.insert('D');
+		return;
+	}
 	else
-		studentGrades = 'F';
+	{
+		studentGrades.insert('F');
+		return;
+	}
+
 }
 
 void Course::addNewStudent(int ID, string name, double studentScore, char studentGrade)
@@ -55,50 +97,55 @@ void Course::addNewStudent(int ID, string name, double studentScore, char studen
 	studentGrades.insert(studentGrade);
 }
 
-Course Course::loadFileToCourses(int numberOfCourses)
+void Course::loadFileToCourses(int numberOfCourses, int& counter)
 {
 	string fileName;
 	ifstream file;
-	string data;
-	Course newCourse;
-	MyBag<Course> theBag;
-	int counter = 1;
+	string ID, score, name, grade;
+	/*Course newCourse;*/
+
+
 	do
 	{
-		cout << "\nEnter a data file name for course[0] (STOP - return): ";
+		cout << "\nEnter a data file name for course[" << counter << "] : ";
 		cin >> fileName;
-		if (fileName == "STOP")
-			break;
-		else
+		file.open(fileName);
+		if (!file)
 		{
-			file.open(fileName);
-			if (file.fail())
-				cout << "ERROR: The file does not found.\n";
-			else
-			{
-				while (!file.eof())
-				{
-					getline(file, data, '\n');
-					newCourse.setCourseName(data);
-					getline(file, data, ',');
-					newCourse.setStudentID(stoi(data));
-					getline(file, data, ',');
-					newCourse.setStudentName(data);
-					getline(file, data, ',');
-					newCourse.setStudentScores(stod(data));
-					newCourse.setStudentGrade(stod(data));
-					if (file.eof())
-						break;
-					//else clean getline? has to have a \n
-				}
-				file.close();
-				theBag.insert(newCourse);
-				cout << "Data from file, " << fileName << ", has been read and stored into Courses[" << (counter - 1) << "].\n";
-				counter++;
-			}
+			cout << "Error: file not found!\n";
 		}
-	} while (counter != numberOfCourses);
-	return newCourse;
+	} while (!file.is_open());
+
+
+	/*file.open(fileName);*/
+	if (file.fail())
+		cout << "ERROR: The file did not open.\n";
+	else
+	{
+		getline(file, name, '\n');
+		setCourseName(name);
+		while (!file.eof())
+		{
+
+			getline(file, ID, ',');
+			setStudentID(stoi(ID));
+			getline(file, name, ',');
+			setStudentName(name);
+			getline(file, score, '\n');
+			setStudentScores(stod(score));
+			setStudentGrade(stod(score));
+			if (file.eof())
+				break;
+			//else clean getline? has to have a \n
+		}
+		file.close();
+
+		cout << "Data from file, " << fileName << ", has been read and stored into Courses[" << (counter) << "].\n";
+		counter++;
+	}
+
+
+	return;
 
 }
 
@@ -108,14 +155,21 @@ bool Course::searchStudentWithID(int ID)
 	return studentIDs.search(ID, position); // WHY DO WE NEED A POSITION IN SEARCHING? **********************************************************
 }
 
-int Course::searchStudentWithName(std::string name) {
+bool Course::searchStudentWithName(std::string name) {
 	int position = 0;
 	if (studentNames.search(name, position)) {
-		return studentIDs.at(position);
+		return true;
 	}
-	else { return -1; }
+	else
+		return false;
 }
-
+void Course::clear()
+{
+	studentIDs.clear();
+	studentNames.clear();
+	studentScores.clear();
+	studentGrades.clear();
+}
 /// WORK IN PROGRRRREEESSSSSS
 
 string Course::getStudentNameByID(int ID)
@@ -125,23 +179,26 @@ string Course::getStudentNameByID(int ID)
 	assert(pos != -1);
 	return studentNames.at(pos);
 }
-double Course::getStudentScoreByID(int ID){ 
+double Course::getStudentScoreByID(int ID) {
 	int pos = -1;
 	studentIDs.search(ID, pos);
 	assert(pos != -1);
 	return studentScores.at(pos);
 }
-char Course::getStudentGradesByID(int ID){ 
+char Course::getStudentGradesByID(int ID) {
 	int pos = -1;
 	studentIDs.search(ID, pos);
 	assert(pos != -1);
 	return studentGrades.at(pos);
 }
 
-void Course::deleteStudentByID(int ID){
-	int index = -1;
+void Course::deleteStudentByID(int ID, int& index) {
+	
 	studentIDs.search(ID, index);
-	assert(index != -1);
+	if (index == -1)
+	{
+		return;
+	}
 	studentIDs.removeAtIndex(index);
 	studentNames.removeAtIndex(index);
 	studentScores.removeAtIndex(index);
@@ -158,12 +215,23 @@ void Course::deleteStudentByName(std::string name) {
 }
 
 
+void Course::operator =(const Course& rhs)
+{
+
+	studentScores = rhs.studentScores;
+	studentNames = rhs.studentNames;
+	studentIDs = rhs.studentIDs;
+	studentGrades = rhs.studentGrades;
+	courseName = rhs.courseName;
+}
 
 ostream& operator<< (ostream& os, const Course& obj)
 {
+	os << obj.courseName << '\n';
 	os << "Index:\tID:\tName:\tScore:\tGrade:";
 	for (int i = 0; i < obj.studentIDs.getSize(); i++)
 	{
+
 		os << '\n' << i << '\t';
 		os << obj.studentIDs << '\t';
 		os << obj.studentNames << '\t';
