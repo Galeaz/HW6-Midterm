@@ -92,8 +92,7 @@ namespace NON_TEMPLATE_MYBAG
 			
 			return out;
 		}
-
-		
+	
 		//Precondition: a my bag object
 		//Postcondition: if the bag is empty, returns true. else, return false
 		bool empty() const

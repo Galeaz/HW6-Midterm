@@ -118,15 +118,12 @@ namespace TEMPLATE_MYBAG
 	{
 		capacity = newCapacity;
 	}
-
 	template<class T>
 	MyBag<T>::MyBag()
 	{
 		capacity = 0;
 		size = 0;
 		array = nullptr;
-	
-	
 	}
 	template<class T>
 	MyBag<T>::MyBag(int newCapacity)
@@ -193,7 +190,6 @@ namespace TEMPLATE_MYBAG
 			return;
 		}
 
-			
 	}
 	template<class T>
 	bool MyBag<T>::search(T element, int& index) const
@@ -256,7 +252,6 @@ namespace TEMPLATE_MYBAG
 				array[i] = array[i+1];
 			cout << "\nThe value " << holder << " has been removed from the array\n";
 		}
-
 
 	}
 

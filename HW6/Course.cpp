@@ -98,7 +98,6 @@ void Course::setStudentGrade(double theScore)
 		studentGrades.insert('F');
 		return;
 	}
-
 }
 
 //Precondition: an int, a string, double, char
@@ -120,7 +119,6 @@ void Course::loadFileToCourses(int numberOfCourses, int& counter)
 	string ID, score, name, grade;
 	/*Course newCourse;*/
 
-
 	do
 	{
 		cout << "\nEnter a data file name for course[" << counter << "] : ";
@@ -131,7 +129,6 @@ void Course::loadFileToCourses(int numberOfCourses, int& counter)
 			cout << "Error: file not found!\n";
 		}
 	} while (!file.is_open());
-
 
 	/*file.open(fileName);*/
 	if (file.fail())
@@ -160,7 +157,6 @@ void Course::loadFileToCourses(int numberOfCourses, int& counter)
 		counter++;
 	}
 	return;
-
 }
 
 bool Course::searchStudentWithID(int ID)
@@ -227,7 +223,6 @@ void Course::deleteStudentByName(std::string name) {
 	studentScores.removeAtIndex(index);
 	studentGrades.removeAtIndex(index);
 }
-
 
 void Course::operator =(const Course& rhs)
 {

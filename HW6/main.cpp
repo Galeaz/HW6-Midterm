@@ -67,9 +67,7 @@ int menuOption()
 void option1()
 {
 	system("cls");
-
 	int size = inputInteger("\nEnter the size (1..100) of the dynamic array: ", 1, 100);
-
 	NON_TEMPLATE_MYBAG::MyBag testBag(size);
 
 	do
