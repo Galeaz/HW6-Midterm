@@ -1,3 +1,6 @@
+//Names: Andrew Thompson, 
+//
+//
 #pragma once
 #include<iostream>
 #include <algorithm>
