@@ -98,7 +98,7 @@ void option1()
 		{
 			int element = inputInteger("\t\tEnter an element (integer) to search: ", true);
 			int index = -1;
-			cout << (testBag.search(1, index) ? "found at " + to_string(index) : "not found") << '\n';
+			cout << (testBag.search(element, index) ? "\t\tElement " +to_string(element)+" found at index [" + to_string(index) +"]": "not found") << '\n';
 		}
 		break;
 		case 'D':
