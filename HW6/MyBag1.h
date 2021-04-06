@@ -1,3 +1,6 @@
+//provided by professor Quach. Thank you, professor!
+//date: 3/30/2021
+//description: contains all information relation to mybag class.
 #pragma once
 #include<iostream>
 #include <algorithm>
@@ -11,8 +14,7 @@ namespace NON_TEMPLATE_MYBAG
 		int size;
 		int capacity;
 	public:
-		//Precondition
-		//Postcondition
+		// constructors
 		MyBag(): array(nullptr),size(0), capacity(0)
 		{}
 
@@ -23,11 +25,13 @@ namespace NON_TEMPLATE_MYBAG
 			capacity = newCapacity;
 		}
 
+		// destructor
 		~MyBag()
 		{
 			delete[] array;
 		}
 
+		// empty the bag
 		void clear()
 		{
 			for (int i = 0; i < size; i++)
@@ -35,6 +39,7 @@ namespace NON_TEMPLATE_MYBAG
 			size = 0;
 		}
 
+		// insert a new element
 		void insert(int element)
 		{
 			if (size < capacity)
@@ -42,8 +47,11 @@ namespace NON_TEMPLATE_MYBAG
 				array[size] = element;
 				size++;
 			}
-			
+			else
+				cout << "\n\tERROR: Bag is full.\n";
 		}
+
+		// serch an element in the bag
 		bool search(int element, int& index) const
 		{
 			index = -1;
@@ -57,11 +65,14 @@ namespace NON_TEMPLATE_MYBAG
 			}
 			return false;
 		}
+
+		// sorts elements
 		void sort()
 		{
 			std::sort(array, array + size);
 		}
 
+		// overload << operator for display of mybag object
 		friend ostream& operator <<(ostream& out, const MyBag& obj)
 		{
 			if (obj.empty())
@@ -76,6 +87,8 @@ namespace NON_TEMPLATE_MYBAG
 			
 			return out;
 		}
+
+		// checks if the bag is empty
 		bool empty() const
 		{
 			if (size == 0)
@@ -83,11 +96,13 @@ namespace NON_TEMPLATE_MYBAG
 			else
 				return false;
 		}
+
+		// removes one element from mybag
 		void remove()
 		{
 			if (empty())
 			{
-				cout << "\nThe bag is empty\n";
+				cout << "\n\tERROR: The bag is empty\n";
 				return;
 			}
 			else
@@ -101,9 +116,7 @@ namespace NON_TEMPLATE_MYBAG
 					array[i] = array[i + 1];
 				cout << "\nThe value " << holder << " has been removed from the array\n";
 			}
+
 		}
 	};
-
-
-
 }
