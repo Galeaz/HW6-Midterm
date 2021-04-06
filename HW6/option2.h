@@ -64,6 +64,9 @@ void option2()
 			default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
 			}
 			
+			if (menuOption == 0)
+				break;
+
 			
 			cout << '\n';
 			system("pause");
