@@ -228,11 +228,11 @@ void Course::operator =(const Course& rhs)
 ostream& operator<< (ostream& os, const Course& obj)
 {
 	os << obj.courseName << '\n';
-	os << "Index:\tID:\tName:\tScore:\tGrade:";
+	os << "Index:\tID:\t Name:\t      Score:\tGrade:";
 	for (int i = 0; i < obj.studentIDs.getSize(); i++)
 	{
 
-		os << '\n' << i << '\t';
+		os << "\n[" << i << "]\t";
 		os << obj.studentIDs[i] << '\t';
 		os << obj.studentNames[i] << '\t';
 		os << obj.studentScores[i] << '\t';

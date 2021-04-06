@@ -54,7 +54,13 @@ void option2()
 						 
 					}
 			case 4:bag.remove(); break;
-			case 5:bag.sort(); cout << bag; break;
+			case 5:
+				bag.sort(); 
+				for (int i = 0; i < bag.getSize(); i++)
+				{
+					cout <<'['<< i << "]:"<< bag.at(i) << '\n';
+				}
+				break;
 			default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
 			}
 			

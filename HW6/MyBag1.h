@@ -65,10 +65,40 @@ namespace NON_TEMPLATE_MYBAG
 		friend ostream& operator <<(ostream& out, const MyBag& obj)
 		{
 			for (int i = 0; i < obj.size; i++)
-				out << obj.array[i] << '\n';
+				out << "\t\t["<<i<<"]:"<< obj.array[i] << '\n';
 			return out;
 
 		}
+		bool empty() const
+		{
+			if (size == 0)
+				return true;
+			else
+				return false;
+		}
+		void remove()
+		{
+			if (empty())
+			{
+				cout << "\nThe bag is empty\n";
+				return;
+			}
+			else
+			{
+
+				int index = inputInteger("Enter the index of the item you want removed: ", 0, size - 1);
+				int holder = array[index];
+				array[index] = 0;
+				size = size - 1;
+				for (int i = index; i < size; i++)
+					array[i] = array[i + 1];
+				cout << "\nThe value " << holder << " has been removed from the array\n";
+			}
+
+
+		}
+
+
 	};
 
 

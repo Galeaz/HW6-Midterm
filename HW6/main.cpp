@@ -24,7 +24,7 @@ void option1();
 
 int main()
 {
-	do
+	do 
 	{
 		switch (menuOption())
 		{
@@ -52,7 +52,7 @@ int menuOption()
 	cout << '\t' << char(186) << " - Christopher Gomez\t- Gia Minh Hoang   " << char(186) << '\n';
 	cout << '\t' << char(186) << " - Duyen Tran                             " << char(186) << '\n';
 	cout << "\t" << char(204) << string(42, char(205)) << char(185) << "\n";
-	cout << "\t" << char(186) << "   1: template bag of ints                " << char(186) << "\n";
+	cout << "\t" << char(186) << "   1: non-template bag of ints            " << char(186) << "\n";
 	cout << "\t" << char(186) << "   2: template bag of doubles             " << char(186) << "\n";
 	cout << "\t" << char(186) << "   3: template course                     " << char(186) << "\n";
 	cout << "\t" << char(199) << string(42, char(196)) << char(182) << "\n";
@@ -79,8 +79,8 @@ void option1()
 		cout << "\n\t\tA> clear";
 		cout << "\n\t\tB> insert";
 		cout << "\n\t\tC> search";
-		cout << "\n\t\tD> sort";
-		cout << "\n\t\tE> display";
+		cout << "\n\t\tD> remove";
+		cout << "\n\t\tE> Sort and display";
 		cout << "\n\t" << string(100, char(196));
 		cout << "\n\t\tF> return";
 		cout << "\n\t\t" << string(100, char(205)) << '\n';
@@ -103,12 +103,15 @@ void option1()
 		break;
 		case 'D':
 		{
-			testBag.sort();
+			testBag.remove();
+
 		}
 		break;
 		case 'E':
 		{
-			cout << '\n' << testBag << '\n';
+
+			testBag.sort();
+			cout << testBag << '\n';
 		}
 		break;
 		case 'F': return;
