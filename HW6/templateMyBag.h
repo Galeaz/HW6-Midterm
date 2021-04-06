@@ -1,6 +1,7 @@
-//Names: Andrew Thompson, 
-//
-//
+//name: Gia Minh Hoang, Andrew Thompson, Lincoln Nguyen
+// Date: 04-05-21
+// Description: Template MyBag
+
 #pragma once
 #include<iostream>
 #include <algorithm>

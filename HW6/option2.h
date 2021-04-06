@@ -1,3 +1,7 @@
+//name: Gia Minh Hoang, Andrew Thompson, Lincoln Nguyen
+// Date: 04-05-21
+// Description: driver2
+
 #pragma once
 #include <iostream>
 #include <algorithm>
@@ -6,6 +10,8 @@ using namespace std;
 using namespace TEMPLATE_MYBAG;
 void option2();
 
+//Precondition: N/A
+//Postcondition: Print the menu
 void option2()
 {
 	MyBag<double> bag(100);

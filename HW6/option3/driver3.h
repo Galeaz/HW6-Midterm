@@ -104,11 +104,6 @@ void driver3()
 				}
 				
 			case 5:
-				if (numberOfCourses == 0 || fileRead == false)
-				{
-					cout << "\nERROR: There are no courses to display!\n";
-					break;
-				}
 				for (int i = 0; i < numberOfCourses; i++)
 				{
 					cout << courses[i]<<'\n';
@@ -203,11 +198,11 @@ void part3Menu4(vector<Course>& obj, int size)
 	cout << '\t' << string(40, char(196)) << '\n';
 	choice = inputInteger("Option: ", 1, size);
 	choice = choice - 1;
-	id = inputInteger("\nEnter an ID to search for, and remove that student if the student ID is found: ");
+	id = inputInteger("\nEnter an id to search for and remove if it is found");
 	obj.at(choice).deleteStudentByID(id, index);
 	if (index == -1)
 	{
-		cout << "\nThe ID "<<id<<" was not found in " << obj.at(choice).getCourseName() << "!\n";
+		cout << "\nThe id "<<id<<" was not found in " << obj.at(choice).getCourseName() << "!\n";
 		return;
 	}
 	else
