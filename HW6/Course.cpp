@@ -6,8 +6,6 @@
 #include <cassert>
 using namespace std;
 
-//Precondition: need Course obj
-//Postcondition: initializes data for Course obj
 Course::Course()
 {
 	studentIDs.setCapacity(0);
@@ -16,8 +14,6 @@ Course::Course()
 	studentScores.setCapacity(0);
 }
 
-//Precondition: need Course obj
-//Postcondition: pass in new data for Course Obj
 Course::Course(const Course& obj)
 {
 	studentIDs = obj.studentIDs;
@@ -27,8 +23,6 @@ Course::Course(const Course& obj)
 	courseName = obj.courseName;
 }
 
-//Precondition: a string
-//Postcondition: change courseName
 void Course::setCourseName(string newCourseName)
 {
 	courseName = newCourseName;
@@ -39,29 +33,21 @@ string Course::getCourseName() const
 	return courseName;
 }
 
-//Precondition: an int
-//Postcondition: change StudentID
 void Course::setStudentID(int newID)
 {
 	studentIDs.insert(newID);
 }
 
-//Precondition: a string
-//Postcondition: change StudentName
 void Course::setStudentName(string newName)
 {
 	studentNames.insert(newName);
 }
 
-//Precondition: a double
-//Postcondition: change StudentScores
 void Course::setStudentScores(double newScore)
 {
 	studentScores.insert(newScore);
 }
 
-//Precondition: a double
-//Postcondition: change StudentGrade according to the pass in value
 void Course::setStudentGrade(double theScore)
 {
 	if (theScore >= 90)
@@ -91,8 +77,6 @@ void Course::setStudentGrade(double theScore)
 	}
 }
 
-//Precondition: an int, a string, double, char
-//Postcondition: change all the datas for studentID, studentNames, studentScores, studentGrades
 void Course::addNewStudent(int ID, string name, double studentScore, char studentGrade)
 {
 	studentIDs.insert(ID);
@@ -101,8 +85,6 @@ void Course::addNewStudent(int ID, string name, double studentScore, char studen
 	studentGrades.insert(studentGrade);
 }
 
-//Precondition: 2 int
-//Postcondition: Print the menu
 void Course::loadFileToCourses(int numberOfCourses, int& counter)
 {
 	string fileName;
