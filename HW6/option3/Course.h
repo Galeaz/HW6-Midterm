@@ -38,7 +38,7 @@ public:
 	// Postcondition: clear all students
 	void clear();
 
-	//void loadFileToCourses(int numberOfCourses,int& counter); // This has become a free function now
+	void loadFileToCourses(int numberOfCourses,int& counter); // This has become a free function now
 
 	// Precondition: course instance
 	// Postcondition: add a new students with ID, name, score, and grade

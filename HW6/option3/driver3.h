@@ -54,13 +54,12 @@ void driver3()
 			case 2: 
 			{
 				if (numberOfCourses != 0) {
-					/*if (counter > 0)
+					if (counter > 0)
 					{
-						for (int i = 0; i < counter; i++)
-							courses.at(i).clear();
-						
+						courses.clear();
+						courses.reserve(numberOfCourses);
 						counter = 0;
-					}*/
+					}
 					for (int i = 0; i < numberOfCourses; i++)
 					{
 						 c1.loadFileToCourses(numberOfCourses, counter);
